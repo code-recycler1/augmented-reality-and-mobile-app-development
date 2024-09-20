@@ -9,16 +9,32 @@ class HomePage extends StatelessWidget {
       appBar: AppBar(
         title: const Text("Title in App Bar"),
       ),
-      body: const Material(
+      body: Material(
         color: Colors.deepPurple,
         child: Center(
           child: Text(
-            "Hello Flutter!",
+            sayHello(),
             textDirection: TextDirection.ltr,
-            style: TextStyle(color: Colors.white, fontSize: 36.0),
+            style: const TextStyle(color: Colors.white, fontSize: 36.0),
           ),
         ),
       ),
     );
+  }
+
+  String sayHello() {
+    String hello;
+    DateTime now = DateTime.now();
+    int hour = now.hour;
+
+    if (hour < 12) {
+      hello = "Good Morning";
+    } else if (hour < 18) {
+      hello = "Good Afternoon";
+    } else {
+      hello = "Good Evening";
+    }
+
+    return hello;
   }
 }
