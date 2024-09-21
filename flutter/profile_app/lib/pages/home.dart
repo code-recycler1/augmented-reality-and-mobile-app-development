@@ -36,22 +36,30 @@ class HomePage extends StatelessWidget {
                   color: Colors.white),
               textAlign: TextAlign.center,
             ),
+            Divider(height: 50.0, color: Colors.white),
             Row(
               children: <Widget>[
-                Text(
-                  "12035 posts",
-                  textAlign: TextAlign.center,
+                Expanded(
+                  child: Text(
+                    "12035 posts",
+                    textAlign: TextAlign.center,
+                  ),
                 ),
-                Text(
-                  "1205021 followers",
-                  textAlign: TextAlign.center,
+                Expanded(
+                  child: Text(
+                    "1205021 followers",
+                    textAlign: TextAlign.center,
+                  ),
                 ),
-                Text(
-                  "2563 following",
-                  textAlign: TextAlign.center,
+                Expanded(
+                  child: Text(
+                    "2563 following",
+                    textAlign: TextAlign.center,
+                  ),
                 ),
               ],
             ),
+            Divider(height: 50.0, color: Colors.white),
           ],
         ),
       ),
