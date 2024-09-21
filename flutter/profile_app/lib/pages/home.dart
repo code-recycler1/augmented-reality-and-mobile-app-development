@@ -9,24 +9,50 @@ class HomePage extends StatelessWidget {
       appBar: AppBar(
         title: const Text("Profile"),
       ),
-      body: Center(
-        child: Container(
-          padding: const EdgeInsets.all(15.0),
-          alignment: Alignment.center,
-          // width: 190.0,
-          // height: 250.0,
-          // margin: const EdgeInsets.all(50.0),
-          color: Colors.blue[400],
-          child: const Text(
-            "PewDiePie",
-            style: TextStyle(
-              fontSize: 40.0,
-              decoration: TextDecoration.none,
-              fontFamily: 'SansitaSwashed',
-              fontWeight: FontWeight.normal,
-              color: Colors.white,
+      body: Container(
+        padding: const EdgeInsets.all(15.0),
+        alignment: Alignment.center,
+        color: Colors.blue[400],
+        child: const Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: <Widget>[
+            Text(
+              "PewDiePie",
+              style: TextStyle(
+                  fontSize: 40.0,
+                  decoration: TextDecoration.none,
+                  fontFamily: 'SansitaSwashed',
+                  fontWeight: FontWeight.normal,
+                  color: Colors.white),
             ),
-          ),
+            SizedBox(height: 30),
+            Text(
+              "Swedish YouTuber, comedian, gamer and philanthropist",
+              style: TextStyle(
+                  fontSize: 20.0,
+                  decoration: TextDecoration.none,
+                  fontFamily: 'SansitaSwashed',
+                  fontWeight: FontWeight.normal,
+                  color: Colors.white),
+              textAlign: TextAlign.center,
+            ),
+            Row(
+              children: <Widget>[
+                Text(
+                  "12035 posts",
+                  textAlign: TextAlign.center,
+                ),
+                Text(
+                  "1205021 followers",
+                  textAlign: TextAlign.center,
+                ),
+                Text(
+                  "2563 following",
+                  textAlign: TextAlign.center,
+                ),
+              ],
+            ),
+          ],
         ),
       ),
     );
