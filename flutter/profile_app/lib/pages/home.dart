@@ -17,7 +17,16 @@ class HomePage extends StatelessWidget {
           // height: 250.0,
           // margin: const EdgeInsets.all(50.0),
           color: Colors.blue[400],
-          child: const Text("PewDiePie"),
+          child: const Text(
+            "PewDiePie",
+            style: TextStyle(
+              fontSize: 40.0,
+              decoration: TextDecoration.none,
+              fontFamily: 'SansitaSwashed',
+              fontWeight: FontWeight.normal,
+              color: Colors.white,
+            ),
+          ),
         ),
       ),
     );
