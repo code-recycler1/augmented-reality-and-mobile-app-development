@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:profile_app/widgets/numberlabel.dart';
 import 'package:profile_app/widgets/circleimage.dart';
+import 'package:profile_app/widgets/iconbutton.dart';
 
 class HomePage extends StatelessWidget {
   const HomePage({Key? key}) : super(key: key);
@@ -15,14 +16,14 @@ class HomePage extends StatelessWidget {
         padding: const EdgeInsets.all(15.0),
         alignment: Alignment.center,
         color: Colors.blue[400],
-        child: const Column(
+        child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
-            CircleImageWidget(
+            const CircleImageWidget(
               imageName: "assets/pewdiepie.png",
             ),
-            SizedBox(height: 30),
-            Text(
+            const SizedBox(height: 30),
+            const Text(
               "PewDiePie",
               style: TextStyle(
                   fontSize: 40.0,
@@ -31,8 +32,8 @@ class HomePage extends StatelessWidget {
                   fontWeight: FontWeight.normal,
                   color: Colors.white),
             ),
-            SizedBox(height: 30),
-            Text(
+            const SizedBox(height: 30),
+            const Text(
               "Swedish YouTuber, comedian, gamer and philanthropist",
               style: TextStyle(
                   fontSize: 20.0,
@@ -42,8 +43,8 @@ class HomePage extends StatelessWidget {
                   color: Colors.white),
               textAlign: TextAlign.center,
             ),
-            Divider(height: 50.0, color: Colors.white),
-            Row(children: <Widget>[
+            const Divider(height: 50.0, color: Colors.white),
+            const Row(children: <Widget>[
               NumberLabelWidget(
                 count: 12035,
                 text: "posts",
@@ -57,10 +58,24 @@ class HomePage extends StatelessWidget {
                 text: "following",
               ),
             ]),
-            Divider(height: 50.0, color: Colors.white),
+            const Divider(height: 50.0, color: Colors.white),
+            IconButtonWidget(
+                icon: Icons.person,
+                text: "follow",
+                onButtonPressed: (text) {
+                  _follow(text, context);
+                }),
           ],
         ),
       ),
     );
+  }
+
+  void _follow(String text, BuildContext context) {
+    var alert = AlertDialog(
+      title: Text(text.toUpperCase()),
+      content: const Text("Registration successfully completed!"),
+    );
+    showDialog(context: context, builder: (BuildContext context) => alert);
   }
 }
