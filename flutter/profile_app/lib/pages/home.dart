@@ -9,10 +9,16 @@ class HomePage extends StatelessWidget {
       appBar: AppBar(
         title: const Text("Profile"),
       ),
-      body: Container(
-        alignment: Alignment.center,
-        color: Colors.blue[400],
-        child: const Text("PewDiePie"),
+      body: Center(
+        child: Container(
+          padding: const EdgeInsets.all(15.0),
+          alignment: Alignment.center,
+          // width: 190.0,
+          // height: 250.0,
+          // margin: const EdgeInsets.all(50.0),
+          color: Colors.blue[400],
+          child: const Text("PewDiePie"),
+        ),
       ),
     );
   }
