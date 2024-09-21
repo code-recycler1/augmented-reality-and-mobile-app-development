@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:profile_app/widgets/numberlabel.dart';
 
 class HomePage extends StatelessWidget {
   const HomePage({Key? key}) : super(key: key);
@@ -37,28 +38,20 @@ class HomePage extends StatelessWidget {
               textAlign: TextAlign.center,
             ),
             Divider(height: 50.0, color: Colors.white),
-            Row(
-              children: <Widget>[
-                Expanded(
-                  child: Text(
-                    "12035 posts",
-                    textAlign: TextAlign.center,
-                  ),
-                ),
-                Expanded(
-                  child: Text(
-                    "1205021 followers",
-                    textAlign: TextAlign.center,
-                  ),
-                ),
-                Expanded(
-                  child: Text(
-                    "2563 following",
-                    textAlign: TextAlign.center,
-                  ),
-                ),
-              ],
-            ),
+            Row(children: <Widget>[
+              NumberLabelWidget(
+                count: 12035,
+                text: "posts",
+              ),
+              NumberLabelWidget(
+                count: 1205021,
+                text: "followers",
+              ),
+              NumberLabelWidget(
+                count: 2563,
+                text: "following",
+              ),
+            ]),
             Divider(height: 50.0, color: Colors.white),
           ],
         ),
