@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:profile_app/widgets/numberlabel.dart';
+import 'package:profile_app/widgets/circleimage.dart';
 
 class HomePage extends StatelessWidget {
   const HomePage({Key? key}) : super(key: key);
@@ -17,6 +18,10 @@ class HomePage extends StatelessWidget {
         child: const Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
+            CircleImageWidget(
+              imageName: "assets/pewdiepie.png",
+            ),
+            SizedBox(height: 30),
             Text(
               "PewDiePie",
               style: TextStyle(
