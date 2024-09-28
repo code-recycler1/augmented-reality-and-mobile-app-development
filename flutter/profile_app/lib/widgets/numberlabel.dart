@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
 
+// A stateless widget that displays a count with a label
 class NumberLabelWidget extends StatelessWidget {
-  final String text;
-  final int count;
+  final String text; // Label text
+  final int count; // Numerical count to display
 
   const NumberLabelWidget({Key? key, required this.text, required this.count})
       : super(key: key);
@@ -13,7 +14,7 @@ class NumberLabelWidget extends StatelessWidget {
       child: Column(
         children: <Widget>[
           Text(
-            count.toString(),
+            count.toString(), // Display the count as a string
             style: const TextStyle(
               fontSize: 20.0,
               decoration: TextDecoration.none,
@@ -22,7 +23,7 @@ class NumberLabelWidget extends StatelessWidget {
             ),
           ),
           Text(
-            text.toUpperCase(),
+            text.toUpperCase(), // Display the label text in uppercase
             style: const TextStyle(
               fontSize: 20.0,
               decoration: TextDecoration.none,
