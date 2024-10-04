@@ -28,24 +28,28 @@ lib/
 The `main.dart` file contains the entry point of the application and sets up the `HelloFlutterApp` widget.
 
 ```dart
-import 'package:flutter/material.dart';
-import './pages/home.dart';
+import 'package:flutter/material.dart'; // Importing the Flutter material package for UI components
+import './pages/home.dart'; // Importing the HomePage widget from the pages directory
 
-void main() => runApp(const HelloFlutterApp());
+// The main function is the entry point of the Flutter application
+void main() => runApp(
+    const HelloFlutterApp()); // Running the app with HelloFlutterApp as the root widget
 
+// The main application widget, which is a stateless widget
 class HelloFlutterApp extends StatelessWidget {
   const HelloFlutterApp({Key? key}) : super(key: key);
 
+  // The build method constructs the UI of the HelloFlutterApp widget
   @override
   Widget build(BuildContext context) {
     return const MaterialApp(
-      debugShowCheckedModeBanner: false,
-      title: 'Hello Flutter App',
-      home: HomePage(),
+      debugShowCheckedModeBanner:
+          false, // Disables the debug banner in the top-right corner
+      title: 'Hello Flutter App', // Sets the title of the application
+      home: HomePage(), // Sets HomePage as the default screen of the app
     );
   }
 }
-
 ```
 
 ### home.dart
@@ -55,33 +59,43 @@ The `home.dart` file contains the `HomePage` widget, which displays a greeting m
 ```dart
 import 'package:flutter/material.dart';
 
+// This is the main HomePage widget, which is stateless
 class HomePage extends StatelessWidget {
   const HomePage({Key? key}) : super(key: key);
 
+  // The build method creates the UI of the HomePage widget
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      // Scaffold provides the basic structure of the screen
       appBar: AppBar(
+        // The AppBar displays a title at the top of the screen
         title: const Text("Title in App Bar"),
       ),
       body: Material(
+        // Sets the background color of the body to deep purple
         color: Colors.deepPurple,
         child: Center(
+          // Centers the child widget (Text) within the body
           child: Text(
-            sayHello(),
-            textDirection: TextDirection.ltr,
-            style: const TextStyle(color: Colors.white, fontSize: 36.0),
+            sayHello(), // Calls the sayHello() method to display the greeting
+            textDirection:
+                TextDirection.ltr, // Sets text direction from left to right
+            style: const TextStyle(
+                color: Colors.white, fontSize: 36.0), // Applies text styling
           ),
         ),
       ),
     );
   }
 
+  // Method to determine and return the appropriate greeting message
   String sayHello() {
     String hello;
-    DateTime now = DateTime.now();
-    int hour = now.hour;
+    DateTime now = DateTime.now(); // Gets the current date and time
+    int hour = now.hour; // Extracts the current hour
 
+    // Determine the greeting message based on the current hour
     if (hour < 12) {
       hello = "Good Morning";
     } else if (hour < 18) {
@@ -90,10 +104,9 @@ class HomePage extends StatelessWidget {
       hello = "Good Evening";
     }
 
-    return hello;
+    return hello; // Returns the selected greeting
   }
 }
-
 ```
 
 ## Features
