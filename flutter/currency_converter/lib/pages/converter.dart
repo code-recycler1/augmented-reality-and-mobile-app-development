@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:currency_converter/models/currency.dart';
 
 class ConverterPage extends StatefulWidget {
   const ConverterPage({Key? key}) : super(key: key);
@@ -12,6 +13,25 @@ class _ConverterPageState extends State {
 
   String _fromamount = "";
   String _toamount = "";
+  late Currency _from;
+  late Currency _to;
+
+  final _currencies = [
+    Currency('US Dollar', 'USD', 1),
+    Currency('Euro', 'EUR', 1.16),
+    Currency('British Pound', 'GBP', 1.2715),
+    Currency('Indian Rupee', 'INR', 0.0135),
+    Currency('Chinese yuan', 'CNY', 0.1466),
+    Currency('Canadian Dollar', 'CAD', 0.7458),
+    Currency('Singapore Dollar', 'SGD', 0.7268)
+  ];
+
+  @override
+  void initState() {
+    super.initState();
+    _from = _currencies[1];
+    _to = _currencies[0];
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -103,11 +123,11 @@ class _ConverterPageState extends State {
 
   void _calculate() {
     double amount = double.parse(amountController.text);
-    double result = amount;
+    double result = amount * _from.value / _to.value;
 
     setState(() {
-      _fromamount = '${amount.toStringAsFixed(3)} amount';
-      _toamount = '${result.toStringAsFixed(3)} TODO';
+      _fromamount = '${amount.toStringAsFixed(3)} ${_from.shortname} =';
+      _toamount = '${result.toStringAsFixed(3)} ${_to.shortname}';
     });
   }
 }
