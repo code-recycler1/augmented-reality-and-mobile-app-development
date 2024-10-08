@@ -421,10 +421,4 @@ class CurrencyDropdownButtonWidget extends StatelessWidget {
 ```
 ## Assets
 
-<img src="./assets/CAD.png" alt="CAD" width="100"/>
-<img src="./assets/CNY.png" alt="CNY" width="100"/>
-<img src="./assets/EUR.png" alt="EUR" width="100"/>
-<img src="./assets/GBP.png" alt="GBP" width="100"/>
-<img src="./assets/INR.png" alt="INR" width="100"/>
-<img src="./assets/SGD.png" alt="SGD" width="100"/>
-<img src="./assets/USD.png" alt="USD" width="100"/>
+<img src="./assets/CAD.png" alt="CAD" width="100"/><img src="./assets/CNY.png" alt="CNY" width="100"/><img src="./assets/EUR.png" alt="EUR" width="100"/><img src="./assets/GBP.png" alt="GBP" width="100"/><img src="./assets/INR.png" alt="INR" width="100"/><img src="./assets/SGD.png" alt="SGD" width="100"/><img src="./assets/USD.png" alt="USD" width="100"/>
