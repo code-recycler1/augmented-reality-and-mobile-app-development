@@ -2,7 +2,7 @@
 
 In this exercise you will develop an app with which primary school children can practice their arithmetic skills. In the first part, you will design the UI. In the second part you will program the code. The app looks like this:
 
-![Exercise One Two Three Image 1](./assets/Exercise_OneTwoThree-1.jpg)
+<img src="./assets/Exercise_OneTwoThree-1.jpg" alt="Exercise_OneTwoThree-1" width="250"/>
 
 ## Create the app
 1. Create a new flutter application with name `one_two_three`.
