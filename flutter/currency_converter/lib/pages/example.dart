@@ -1,16 +1,16 @@
 import 'package:flutter/material.dart';
 
-// StatefulWidget for the Simple page
-class SimplePage extends StatefulWidget {
-  const SimplePage({Key? key}) : super(key: key);
+// StatefulWidget for the example page
+class ExamplePage extends StatefulWidget {
+  const ExamplePage({Key? key}) : super(key: key);
 
   // Creates the mutable state for the widget
   @override
-  State<StatefulWidget> createState() => _ConverterPageState();
+  State<StatefulWidget> createState() => _ExamplePageState();
 }
 
 // The state class where the logic and UI updates are handled
-class _ConverterPageState extends State<SimplePage> {
+class _ExamplePageState extends State<ExamplePage> {
   String _name = ''; // Variable to store the name entered by the user
 
   // Builds the UI layout of the page
@@ -18,7 +18,7 @@ class _ConverterPageState extends State<SimplePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text("Currency Converter"), // AppBar title
+        title: const Text("Example"), // AppBar title
       ),
       body: Container(
         padding: const EdgeInsets.all(15.0), // Padding around the content
