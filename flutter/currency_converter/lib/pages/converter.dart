@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:currency_converter/models/currency.dart';
+import 'package:currency_converter/widgets/currencydropdownbutton.dart';
 
 class ConverterPage extends StatefulWidget {
   const ConverterPage({Key? key}) : super(key: key);
@@ -60,6 +61,26 @@ class _ConverterPageState extends State {
                   ),
                 ),
               ),
+            ),
+            Padding(
+              padding: EdgeInsets.only(bottom: formPadding, top: formPadding),
+              child: CurrencyDropdownButtonWidget(
+                  labelText: "From",
+                  selectedCurrency: _from,
+                  currencies: _currencies,
+                  onCurrencySelected: (currency) {
+                    _onFromChanged(currency);
+                  }),
+            ),
+            Padding(
+              padding: EdgeInsets.only(bottom: formPadding, top: formPadding),
+              child: CurrencyDropdownButtonWidget(
+                  labelText: "To",
+                  selectedCurrency: _to,
+                  currencies: _currencies,
+                  onCurrencySelected: (currency) {
+                    _onToChanged(currency);
+                  }),
             ),
             Container(
               height: formPadding,
@@ -122,12 +143,31 @@ class _ConverterPageState extends State {
   }
 
   void _calculate() {
-    double amount = double.parse(amountController.text);
-    double result = amount * _from.value / _to.value;
+    try {
+      double amount = double.parse(amountController.text);
+      double result = amount * _from.value / _to.value;
 
+      setState(() {
+        _fromamount = '${amount.toStringAsFixed(3)} ${_from.shortname} =';
+        _toamount = '${result.toStringAsFixed(3)} ${_to.shortname}';
+      });
+    } catch (e) {
+      // Handle the error, e.g., show a dialog or a snackbar
+      ScaffoldMessenger.of(context).showSnackBar(
+        const SnackBar(content: Text('Please enter a valid number')),
+      );
+    }
+  }
+
+  void _onFromChanged(Currency currency) {
     setState(() {
-      _fromamount = '${amount.toStringAsFixed(3)} ${_from.shortname} =';
-      _toamount = '${result.toStringAsFixed(3)} ${_to.shortname}';
+      _from = currency;
+    });
+  }
+
+  void _onToChanged(Currency currency) {
+    setState(() {
+      _to = currency;
     });
   }
 }
