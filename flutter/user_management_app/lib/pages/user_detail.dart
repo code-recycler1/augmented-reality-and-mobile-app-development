@@ -21,7 +21,11 @@ class _UserDetailPageState extends State<UserDetailPage> {
   @override
   void initState() {
     super.initState();
-    _getUser(widget.id);
+    if (widget.id == 0) {
+      user = User(id: 0, firstname: "", lastname: "", email: "");
+    } else {
+      _getUser(widget.id);
+    }
   }
 
   void _getUser(int id) {
@@ -37,6 +41,8 @@ class _UserDetailPageState extends State<UserDetailPage> {
     return Scaffold(
       appBar: AppBar(
         title: const Text("User details"),
+        backgroundColor: Colors.red,
+        foregroundColor: Colors.white,
       ),
       body: Container(
         padding: const EdgeInsets.all(5.0),

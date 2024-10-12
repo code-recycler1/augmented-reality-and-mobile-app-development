@@ -37,6 +37,13 @@ class _UserListPageState extends State {
         backgroundColor: Colors.red,
         foregroundColor: Colors.white,
       ),
+      floatingActionButton: FloatingActionButton(
+        onPressed: () {
+          _navigateToDetail(0);
+        },
+        tooltip: "Add new User",
+        child: const Icon(Icons.add),
+      ),
       body: Container(
         padding: const EdgeInsets.all(5.0),
         child: _userListItems(),
