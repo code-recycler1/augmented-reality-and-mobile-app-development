@@ -17,4 +17,15 @@ class UserApi {
       throw Exception('Failed to load users');
     }
   }
+
+  static Future<User> fetchUser(int id) async {
+    var url = Uri.https(server, '/users/$id');
+
+    final response = await http.get(url);
+    if (response.statusCode == 200) {
+      return User.fromJson(jsonDecode(response.body));
+    } else {
+      throw Exception('Failed to load user');
+    }
+  }
 }
