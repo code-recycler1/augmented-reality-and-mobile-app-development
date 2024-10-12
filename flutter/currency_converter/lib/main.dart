@@ -15,7 +15,8 @@ class CurrencyConverterApp extends StatelessWidget {
       debugShowCheckedModeBanner: false, // Removes the debug banner
       title: 'Currency Converter', // App title
       theme: ThemeData(
-        primarySwatch: Colors.green, // Sets theme color
+        colorScheme:
+            ColorScheme.fromSeed(seedColor: Colors.green), // Sets theme color
       ),
       home: const ConverterPage(), // Home page is the ConverterPage widget
     );

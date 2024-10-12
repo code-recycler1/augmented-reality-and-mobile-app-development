@@ -47,6 +47,8 @@ class _ConverterPageState extends State<ConverterPage> {
     return Scaffold(
       appBar: AppBar(
         title: const Text("Currency Converter"), // AppBar title
+        backgroundColor: Colors.green,
+        foregroundColor: Colors.white,
       ),
       body: Container(
         padding: const EdgeInsets.all(15.0),
