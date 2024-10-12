@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import '../models/user.dart';
 import '../apis/user_api.dart';
+import 'user_detail.dart';
 
 class UserListPage extends StatefulWidget {
   const UserListPage({Key? key}) : super(key: key);
@@ -59,11 +60,20 @@ class _UserListPageState extends State {
                 "${userList[position].firstname} ${userList[position].lastname}"),
             subtitle: Text(userList[position].email),
             onTap: () {
-              debugPrint("Tapped on ${userList[position].id}");
+              _navigateToDetail(userList[position].id);
             },
           ),
         );
       },
     );
+  }
+
+  void _navigateToDetail(int id) async {
+    await Navigator.push(
+      context,
+      MaterialPageRoute(builder: (context) => UserDetailPage(id: id)),
+    );
+
+    _getUsers();
   }
 }
