@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import '../models/user.dart';
+import '../apis/user_api.dart';
 
 class UserListPage extends StatefulWidget {
   const UserListPage({Key? key}) : super(key: key);
@@ -8,8 +10,23 @@ class UserListPage extends StatefulWidget {
 }
 
 class _UserListPageState extends State {
-  List<String> userList = ["George Bluth", "Janet Weaver", "Emma Wong"];
-  int count = 3;
+  List<User> userList = [];
+  int count = 0;
+
+  @override
+  void initState() {
+    super.initState();
+    _getUsers();
+  }
+
+  void _getUsers() {
+    UserApi.fetchUsers().then((result) {
+      setState(() {
+        userList = result;
+        count = result.length;
+      });
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -33,7 +50,7 @@ class _UserListPageState extends State {
         return Card(
           color: Colors.white,
           elevation: 2.0,
-          child: Text(userList[position]),
+          child: Text(userList[position].lastname),
         );
       },
     );
