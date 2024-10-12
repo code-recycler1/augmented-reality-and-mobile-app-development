@@ -4,4 +4,17 @@ import '../models/user.dart';
 
 class UserApi {
   static String server = 'old-bats-rule.loca.lt';
+
+  static Future<List<User>> fetchUsers() async {
+    var url = Uri.https(server, '/users');
+
+    final response = await http.get(url);
+
+    if (response.statusCode == 200) {
+      List jsonResponse = json.decode(response.body);
+      return jsonResponse.map((user) => User.fromJson(user)).toList();
+    } else {
+      throw Exception('Failed to load users');
+    }
+  }
 }
