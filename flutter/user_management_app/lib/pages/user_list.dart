@@ -8,6 +8,9 @@ class UserListPage extends StatefulWidget {
 }
 
 class _UserListPageState extends State {
+  List<String> userList = ["George Bluth", "Janet Weaver", "Emma Wong"];
+  int count = 3;
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -18,8 +21,21 @@ class _UserListPageState extends State {
       ),
       body: Container(
         padding: const EdgeInsets.all(5.0),
-        child: const Text("Userlist"),
+        child: _userListItems(),
       ),
+    );
+  }
+
+  ListView _userListItems() {
+    return ListView.builder(
+      itemCount: count,
+      itemBuilder: (BuildContext context, int position) {
+        return Card(
+          color: Colors.white,
+          elevation: 2.0,
+          child: Text(userList[position]),
+        );
+      },
     );
   }
 }
