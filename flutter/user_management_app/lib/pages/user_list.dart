@@ -50,7 +50,18 @@ class _UserListPageState extends State {
         return Card(
           color: Colors.white,
           elevation: 2.0,
-          child: Text(userList[position].lastname),
+          child: ListTile(
+            leading: CircleAvatar(
+              backgroundColor: Colors.red,
+              child: Text(userList[position].lastname.substring(0, 1)),
+            ),
+            title: Text(
+                "${userList[position].firstname} ${userList[position].lastname}"),
+            subtitle: Text(userList[position].email),
+            onTap: () {
+              debugPrint("Tapped on ${userList[position].id}");
+            },
+          ),
         );
       },
     );
