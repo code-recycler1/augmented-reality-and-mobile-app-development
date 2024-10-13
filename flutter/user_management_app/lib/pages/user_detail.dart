@@ -3,13 +3,13 @@ import '../models/user.dart';
 import '../apis/user_api.dart';
 
 const List<String> choices = <String>[
-  'Save User & Back',
-  'Delete User',
-  'Back to List'
+  'Save User & Back', // Option to save user and return to list
+  'Delete User', // Option to delete the user
+  'Back to List' // Option to go back without changes
 ];
 
 class UserDetailPage extends StatefulWidget {
-  final int id;
+  final int id; // User ID, 0 for creating a new user
 
   const UserDetailPage({Key? key, required this.id}) : super(key: key);
 
@@ -18,8 +18,9 @@ class UserDetailPage extends StatefulWidget {
 }
 
 class _UserDetailPageState extends State<UserDetailPage> {
-  User? user;
+  User? user; // User object, initially null
 
+  // Controllers to handle text input for user details
   TextEditingController firstnameController = TextEditingController();
   TextEditingController lastnameController = TextEditingController();
   TextEditingController emailController = TextEditingController();
@@ -28,12 +29,13 @@ class _UserDetailPageState extends State<UserDetailPage> {
   void initState() {
     super.initState();
     if (widget.id == 0) {
-      user = User(id: 0, firstname: "", lastname: "", email: "");
+      user = User(id: 0, firstname: "", lastname: "", email: ""); // New user
     } else {
-      _getUser(widget.id);
+      _getUser(widget.id); // Fetch user details if editing
     }
   }
 
+  // Fetch user details by ID
   void _getUser(int id) {
     UserApi.fetchUser(id).then((result) {
       setState(() {
@@ -51,7 +53,7 @@ class _UserDetailPageState extends State<UserDetailPage> {
         foregroundColor: Colors.white,
         actions: <Widget>[
           PopupMenuButton<String>(
-            onSelected: _menuSelected,
+            onSelected: _menuSelected, // Handle menu selection
             itemBuilder: (BuildContext context) {
               return choices.asMap().entries.map((entry) {
                 return PopupMenuItem<String>(
@@ -65,14 +67,16 @@ class _UserDetailPageState extends State<UserDetailPage> {
       ),
       body: Container(
         padding: const EdgeInsets.all(5.0),
-        child: _userDetails(),
+        child: _userDetails(), // Display the user details form
       ),
     );
   }
 
+  // Display user detail form or loading indicator
   _userDetails() {
     if (user == null) {
-      return const Center(child: CircularProgressIndicator());
+      return const Center(
+          child: CircularProgressIndicator()); // Show loading indicator
     } else {
       TextStyle? textStyle = Theme.of(context).textTheme.bodyText1;
 
@@ -80,6 +84,7 @@ class _UserDetailPageState extends State<UserDetailPage> {
       lastnameController.text = user!.lastname;
       emailController.text = user!.email;
 
+      // Form fields for user data
       return Padding(
         padding: const EdgeInsets.all(10.0),
         child: Column(
@@ -96,9 +101,7 @@ class _UserDetailPageState extends State<UserDetailPage> {
                 ),
               ),
             ),
-            Container(
-              height: 15,
-            ),
+            Container(height: 15),
             TextField(
               controller: lastnameController,
               style: textStyle,
@@ -111,9 +114,7 @@ class _UserDetailPageState extends State<UserDetailPage> {
                 ),
               ),
             ),
-            Container(
-              height: 15,
-            ),
+            Container(height: 15),
             TextField(
               controller: emailController,
               style: textStyle,
@@ -132,6 +133,7 @@ class _UserDetailPageState extends State<UserDetailPage> {
     }
   }
 
+  // Handle menu item selection
   void _menuSelected(String index) async {
     switch (index) {
       case "0": // Save User & Back
@@ -147,6 +149,7 @@ class _UserDetailPageState extends State<UserDetailPage> {
     }
   }
 
+  // Save user data
   void _saveUser() {
     user!.firstname = firstnameController.text;
     user!.lastname = lastnameController.text;
@@ -163,6 +166,7 @@ class _UserDetailPageState extends State<UserDetailPage> {
     }
   }
 
+  // Delete user by ID
   void _deleteUser() {
     UserApi.deleteUser(widget.id).then((result) {
       Navigator.pop(context, true);
