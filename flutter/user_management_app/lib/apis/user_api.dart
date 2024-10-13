@@ -3,7 +3,7 @@ import 'dart:convert';
 import '../models/user.dart';
 
 class UserApi {
-  static String server = 'old-bats-rule.loca.lt';
+  static String server = 'good-schools-decide.loca.lt';
 
   static Future<List<User>> fetchUsers() async {
     var url = Uri.https(server, '/users');
