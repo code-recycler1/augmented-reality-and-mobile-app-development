@@ -317,23 +317,4 @@ class FlagImage extends StatelessWidget {
 
 ## Assets
 
-<img src="./assets/ar.png" alt="ar" width="100"/>
-<img src="./assets/au.png" alt="au" width="100"/>
-<img src="./assets/br.png" alt="br" width="100"/>
-<img src="./assets/ca.png" alt="ca" width="100"/>
-<img src="./assets/ch.png" alt="ch" width="100"/>
-<img src="./assets/ci.png" alt="ci" width="100"/>
-<img src="./assets/cm.png" alt="cm" width="100"/>
-<img src="./assets/cy.png" alt="cy" width="100"/>
-<img src="./assets/eg.png" alt="eg" width="100"/>
-<img src="./assets/es.png" alt="es" width="100"/>
-<img src="./assets/gh.png" alt="gh" width="100"/>
-<img src="./assets/gr.png" alt="gr" width="100"/>
-<img src="./assets/jm.png" alt="jm" width="100"/>
-<img src="./assets/jp.png" alt="jp" width="100"/>
-<img src="./assets/kz.png" alt="kz" width="100"/>
-<img src="./assets/mt.png" alt="mt" width="100"/>
-<img src="./assets/mx.png" alt="mx" width="100"/>
-<img src="./assets/pt.png" alt="pt" width="100"/>
-<img src="./assets/sy.png" alt="sy" width="100"/>
-<img src="./assets/tr.png" alt="tr" width="100"/>
+<img src="./assets/ar.png" alt="ar" width="100"/><img src="./assets/au.png" alt="au" width="100"/><img src="./assets/br.png" alt="br" width="100"/><img src="./assets/ca.png" alt="ca" width="100"/><img src="./assets/ch.png" alt="ch" width="100"/><img src="./assets/ci.png" alt="ci" width="100"/><img src="./assets/cm.png" alt="cm" width="100"/><img src="./assets/cy.png" alt="cy" width="100"/><img src="./assets/eg.png" alt="eg" width="100"/><img src="./assets/es.png" alt="es" width="100"/><img src="./assets/gh.png" alt="gh" width="100"/><img src="./assets/gr.png" alt="gr" width="100"/><img src="./assets/jm.png" alt="jm" width="100"/><img src="./assets/jp.png" alt="jp" width="100"/><img src="./assets/kz.png" alt="kz" width="100"/><img src="./assets/mt.png" alt="mt" width="100"/><img src="./assets/mx.png" alt="mx" width="100"/><img src="./assets/pt.png" alt="pt" width="100"/><img src="./assets/sy.png" alt="sy" width="100"/><img src="./assets/tr.png" alt="tr" width="100"/>
